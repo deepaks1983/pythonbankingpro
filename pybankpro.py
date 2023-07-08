@@ -54,6 +54,7 @@ class Login:
                         file.write('{}\n'.format(json.dumps(dl)))
 
                     print(f"You Deposited Rs {amount}/- and Your balance is Rs {dl[user_name]['Balance']}/-")
+                    print('Thanks for banking with us! Have a great day')
                     break
 
 
@@ -71,6 +72,7 @@ class Login:
                         with open('file.json', 'w') as file:
                             file.write('{}\n'.format(json.dumps(dl)))
                         print(f"You Withdraw Rs {amount}/- and Your balance is Rs {dl[user_name]['Balance']}/-")
+                        print('Thanks for banking with us! Have a great day')
                         break
 
 
