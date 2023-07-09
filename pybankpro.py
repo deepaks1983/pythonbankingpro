@@ -48,6 +48,7 @@ class Login:
                 if option.lower() == 'd':
                     amount = int(input('Enter the amount to deposit: '))
 
+
                     dl[user_name]['Balance'] = dl[user_name]['Balance'] + amount
 
                     # Save the updated JSON object to the file
@@ -57,6 +58,9 @@ class Login:
                     print(f"You Deposited Rs {amount}/- and Your balance is Rs {dl[user_name]['Balance']}/-")
                     print('Thanks for banking with us! Have a great day')
                     break
+
+
+
 
                 if option.lower() == 'w':
                     amount = int(input('Enter the amount to withdraw: '))
@@ -93,7 +97,7 @@ class Registration:
         Bank_DB = {}
 
         print('Please enter the details')
-        login_name = input('Enter the login Name: ')
+        login_name = input('Enter the desired login Name: ')
 
         if login_name in dl.keys():
 
@@ -126,4 +130,5 @@ class Registration:
 
 
 Bank()
+
 
