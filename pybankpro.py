@@ -1,4 +1,5 @@
 import json
+import random
 
 
 def dataLoad():
@@ -39,13 +40,13 @@ class Login:
         if user_name in dl.keys() and dl[user_name]['User_Password'] == password:
             print('User Logged in Successfully')
             print('Your Balance is ', dl[user_name]['Balance'])
+            print('Your Account Number is:', str(dl[user_name]['Account Number'])[1:-1])
 
-            option = int(input("Enter '1' for Depositing\nEnter '2' for Withdrawal\n"))
+            option = (input("Enter 'd' for Depositing\nEnter 'w' for Withdrawal\nEnter 'l' for Logout\n"))
 
             while True:
-                if option == 1:
+                if option.lower() == 'd':
                     amount = int(input('Enter the amount to deposit: '))
-
 
                     dl[user_name]['Balance'] = dl[user_name]['Balance'] + amount
 
@@ -57,10 +58,7 @@ class Login:
                     print('Thanks for banking with us! Have a great day')
                     break
 
-
-
-
-                if option == 2:
+                if option.lower() == 'w':
                     amount = int(input('Enter the amount to withdraw: '))
                     if amount > dl[user_name]['Balance']:
                         print('Not enough balance to withdraw')
@@ -74,6 +72,10 @@ class Login:
                         print(f"You Withdraw Rs {amount}/- and Your balance is Rs {dl[user_name]['Balance']}/-")
                         print('Thanks for banking with us! Have a great day')
                         break
+                if option.lower() == 'l':
+                    print('You Logged Out Successfully')
+                    break
+
 
 
 
@@ -101,6 +103,7 @@ class Registration:
         else:
 
             Bank_DB[login_name] = {}
+            rand = random.sample(range(1111111111, 9999999999), 1)
             user_password = input('Enter the password: ')
             Beneficiary_name = input('Enter your Name: ')
             phone_no = input('Enter the Phone Number: ')
@@ -110,6 +113,7 @@ class Registration:
             Bank_DB[login_name]['Beneficiary_Name'] = Beneficiary_name
             Bank_DB[login_name]['Phone_No'] = phone_no
             Bank_DB[login_name]['Balance'] = 0
+            Bank_DB[login_name]['Account Number'] = rand
 
             while Bank_DB == {}:
                 break
@@ -121,4 +125,5 @@ class Registration:
                         sample.write('{}\n'.format(json.dumps(dict)))
 
 
-b = Bank()
+Bank()
+
