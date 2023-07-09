@@ -73,7 +73,7 @@ class Login:
                         print('Thanks for banking with us! Have a great day')
                         break
                 if option.lower() == 'l':
-                    print('You Logged Out Successfully')
+                    print('You Logged Out Successfully! Have a Nice Day')
                     break
 
 
