@@ -1,4 +1,4 @@
-This program is a simple bank management system that allows users to register, log in, deposit, and withdraw money from their accounts.
+### This program is a simple bank management system that allows users to register, log in, deposit, and withdraw money from their accounts.
 ## Additional Information
 
 - The program uses a JSON file named "file.json" to store user data and account details.
