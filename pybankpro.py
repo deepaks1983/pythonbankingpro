@@ -16,13 +16,16 @@ def dataLoad():
 class Bank:
 
     def __init__(self):
-        option = int(input("Enter '1' for registration\nEnter '2' for login\n"))
+        option = (input("Enter '1' for registration\nEnter '2' for login\nEnter 'q' for Quit\n"))
 
-        if option == 1:
+        if option == '1':
             Registration()
 
-        if option == 2:
+        if option == '2':
             Login()
+
+        if option.lower()== 'q':
+            exit(0)
 
         else:
 
@@ -78,7 +81,7 @@ class Login:
                         break
                 if option.lower() == 'l':
                     print('You Logged Out Successfully! Have a Nice Day')
-                    break
+                    exit(0)
 
 
 
@@ -118,12 +121,13 @@ class Registration:
             Bank_DB[login_name]['Phone_No'] = phone_no
             Bank_DB[login_name]['Balance'] = 0
             Bank_DB[login_name]['Account Number'] = rand
+            print('Registration Completed Successfully')
 
             while Bank_DB == {}:
                 break
 
             else:
-                with open('file.json', 'a') as sample:
+                with open('file.json', 'a+') as sample:
 
                     for dict in [Bank_DB]:
                         sample.write('{}\n'.format(json.dumps(dict)))
